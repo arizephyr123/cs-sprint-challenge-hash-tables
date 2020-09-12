@@ -1,8 +1,14 @@
 def has_negatives(a):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    num_dict = {}
+    result = []
+    for num in a:
+        if num_dict.get(num *-1):
+            if num >= 0:
+                result.append(num)
+            else:
+                result.append(num *-1)
+        else:
+            num_dict[num] = num
 
     return result
 
