@@ -1,12 +1,27 @@
 # Your code here
-
-
-
 def finder(files, queries):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    path_dict = {}
+    result = []
+    for file in files:
+        temp_paths = file.split('/')
+        for path in temp_paths:
+            if path is '':
+                pass
+            else:
+                try:
+                    if path_dict[path]:
+                        path_dict[path].append(file)
+                except:
+                    path_dict[path] = [file]
+
+    for query in queries:
+        try:
+            if path_dict[query]:
+                result = result + path_dict[query]
+            else:
+                pass
+        except:
+            pass
 
     return result
 
@@ -22,4 +37,4 @@ if __name__ == "__main__":
         "qux",
         "baz"
     ]
-    print(finder(files, queries))
+    # print(finder(files, queries))
